@@ -21,10 +21,18 @@ router.get('/getCoord', async (req, res) => {
 router.post('/addEstacion', async (req, res) => {
   const result = await data.addEstacion(req.body);
   res.json(result);
-})
+});
 
 router.delete('/deleteEstacion/:id', async (req, res) => {
   res.json(await data.deleteEstacion(req.params.id));
-})
+});
+
+router.get('/exportCsv/:id', async (req, res) => {
+  res.json(await data.exportCsv(req.params.id));
+});
+
+router.get('/exportExcel/:id', async (req, res) => {
+  res.json(await data.exportExcel(req.params.id));
+});
 
 module.exports = router;
